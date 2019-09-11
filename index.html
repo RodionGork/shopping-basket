@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Little Internet Shop</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="s/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    tbody tr:hover {background: #ff8 !important}
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-12 text-center">
+         <h1>Little Internet Shop</h1>
+         <div class="text-secondary font-italic">Using Python, Flask and Bootstrap 4</div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3 text-center">
+      </div>
+    </div>
+    
+    <hr/>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Our Goods</h3>
+        <table id="goods" class="table table-striped text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>Item</th>
+              <th>Price (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6">
+        <h3>Your Basket</h3>
+        <table id="basket" class="table table-striped text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <hr/>
+        <div class="text-center font-weight-bold">Total:
+            <span id="total" class="text-success">0</span>$
+            <br/><br/>
+            <a class="btn btn-warning" id="btn-order" href="{{ url_for('order') }}">Order!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="add-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content" action="{{ url_for('add_item') }}" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title">Add to Basket</h5>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control" type="text" name="item" readonly="true" value="Apples"/>
+              </div>
+              <div class="col-lg-6">
+                <input style="text-align:right" class="form-control" type="text" name="qty" value="1"/>
+              </div>
+              <input type="hidden" name="id"/>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="doAdd()">Add</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="s/jquery/jquery.min.js"></script>
+  <script src="s/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="main.js"></script>
+
+</body>
+
+</html>
